@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INF 321 - Projeto e Desenvolvimento de Sistemas para a Web (Exercício 3)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="nav-conteudo">
+            <p>
+                <a href="index.html">Início</a> | 
+                <a href="produtos.html">Ir para Página de Produtos</a>
+            </p>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <header>
+            <img src="img/ufv-logo.png" alt="Logo da Universidade Federal de Viçosa" width="180">
+            <h1>INF 321 - Projeto e Desenvolvimento de Sistemas para a Web</h1>
+            <p>Departamento de Informática - Universidade Federal de Viçosa (UFV)</p>
+            <p><strong>Professor:</strong> Lucas Vegi | <strong>Aluno:</strong> Rafael Caetité</p>
+        </header>
+
+        <main>
+            <section>
+                <h2>Sobre a disciplina</h2>
+                <p>A disciplina aborda o desenvolvimento de aplicações web completas, cobrindo tanto o ecossistema front-end (HTML5, CSS3 e JavaScript) quanto a arquitetura e comunicação com sistemas back-end.</p>
+                <p><strong>Professor:</strong> Lucas Vegi</p>
+                <p><strong>Departamento:</strong> Departamento de Informática (DPI / CCE)</p>
+            </section>
+
+            <section>
+                <h2>Tópicos estudados</h2>
+                <p>Principais conteúdos abordados ao longo do semestre:</p>
+                <img src="img/web.jpg" alt="Foto de tela de código e desenvolvimento web" width="300" style="margin-bottom: 15px; border-radius: 6px;">
+                <ul>
+                    <li>Arquitetura da Web e protocolo HTTP</li>
+                    <li>Estrutura semântica de páginas com HTML5</li>
+                    <li>Estilização e layouts com CSS3 (Flexbox e Grid)</li>
+                    <li>Design responsivo e acessibilidade</li>
+                    <li>Programação client-side com JavaScript</li>
+                    <li>Consumo de APIs e comunicação assíncrona</li>
+                    <li>Introdução a frameworks e desenvolvimento back-end</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Horários das aulas</h2>
+                <div class="tabela-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Dia</th>
+                                <th>Horário</th>
+                                <th>Tipo</th>
+                                <th>Local</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Segunda-feira</td>
+                                <td>14:00 - 16:00</td>
+                                <td>Teórica</td>
+                                <td>PVA - Sala 105</td>
+                            </tr>
+                            <tr>
+                                <td>Quarta-feira</td>
+                                <td>14:00 - 16:00</td>
+                                <td>Prática</td>
+                                <td>Laboratório do DPI</td>
+                            </tr>
+                            <tr>
+                                <td>Sexta-feira</td>
+                                <td>16:00 - 18:00</td>
+                                <td>Atendimento / Dúvidas</td>
+                                <td>Gabinete do professor (DPI)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section>
+                <h2>Links úteis</h2>
+                <p>Material de apoio e portais acadêmicos:</p>
+                <ol>
+                    <li><a href="https://pvanet.ufv.br/" target="_blank">PVANet UFV</a></li>
+                    <li><a href="https://www.dpi.ufv.br/" target="_blank">Site do Departamento de Informática</a></li>
+                    <li><a href="https://www.ufv.br/" target="_blank">Portal da UFV</a></li>
+                    <li><a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript" target="_blank">MDN Web Docs - Guia JavaScript</a></li>
+                    <li><a href="https://www.w3schools.com/js/" target="_blank">W3Schools - Tutorial JavaScript</a></li>
+                </ol>
+            </section>
+
+            <!-- FORMULÁRIO DE COMUNICAÇÃO COM VALIDAÇÃO -->
+            <section id="contato">
+                <h2>Contato</h2>
+                <p>Envie sua dúvida ou mensagem para o professor (campos com * são obrigatórios):</p>
+                
+                <form id="form-contato" novalidate>
+                    <p>
+                        <label for="nome">Nome: *</label>
+                        <input type="text" id="nome" name="nome" placeholder="Digite seu nome">
+                        <span class="msg-erro" id="erro-nome">Este campo é obrigatório.</span>
+                    </p>
+                    <p>
+                        <label for="matricula">Matrícula:</label>
+                        <input type="text" id="matricula" name="matricula" placeholder="Ex: 105000">
+                    </p>
+                    <p>
+                        <label for="email">E-mail: *</label>
+                        <input type="email" id="email" name="email" placeholder="seu.email@ufv.br">
+                        <span class="msg-erro" id="erro-email">Este campo é obrigatório.</span>
+                    </p>
+                    <p>
+                        <label for="assunto">Assunto:</label>
+                        <input type="text" id="assunto" name="assunto" placeholder="Ex: Dúvida no exercício de JavaScript">
+                    </p>
+                    <p>
+                        <label for="mensagem">Mensagem: *</label>
+                        <textarea id="mensagem" name="mensagem" rows="5" placeholder="Digite sua mensagem aqui..."></textarea>
+                        <span class="msg-erro" id="erro-mensagem">Este campo é obrigatório.</span>
+                    </p>
+                    <p>
+                        <button type="submit">Enviar mensagem</button>
+                    </p>
+
+                    <!-- Mensagem de Sucesso da Validação -->
+                    <div id="sucesso-contato" class="form-sucesso hidden">
+                        Mensagem enviada com sucesso! Entraremos em contato em breve.
+                    </div>
+                </form>
+            </section>
+        </main>
+
+    </div>
+
+    <footer>
+        <p>INF 321 - Projeto e Desenvolvimento de Sistemas para a Web | Universidade Federal de Viçosa</p>
+        <p>Aluno: Rafael Caetité</p>
+    </footer>
+
+    <!-- SCRIPT JAVASCRIPT -->
+    <script src="app.js"></script>
+</body>
+</html>

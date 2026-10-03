@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3 - JavaScript (INF 321 - UFV)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- BARRA DE NAVEGAÇÃO SUPERIOR -->
+    <nav>
+        <div class="nav-conteudo">
+            <p>
+                <strong>Navegação:</strong> 
+                <a href="#disciplina">Página da Disciplina</a> | 
+                <a href="#produtos">Página de Produtos</a> |
+                <a href="disciplina.html">Ver Disciplina Separada</a> |
+                <a href="produtos.html">Ver Produtos Separados</a>
+            </p>
+            <button type="button" id="btn-abrir-carrinho" class="btn-carrinho-nav" title="Abrir carrinho de compras">
+                Carrinho <span id="contador-carrinho" class="contador-carrinho">(0)</span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <!-- PARTE 1: DISCIPLINA -->
+        <header id="disciplina">
+            <img src="img/ufv-logo.png" alt="Logo da Universidade Federal de Viçosa" width="180">
+            <h1>INF 321 - Projeto e Desenvolvimento de Sistemas para a Web</h1>
+            <p>Departamento de Informática - Universidade Federal de Viçosa (UFV)</p>
+            <p><strong>Professor:</strong> Lucas Vegi | <strong>Aluno:</strong> Rafael Caetité</p>
+        </header>
+
+        <main>
+            <section>
+                <h2>Sobre a disciplina</h2>
+                <p>A disciplina aborda o desenvolvimento de aplicações web completas, cobrindo tanto o ecossistema front-end (HTML5, CSS3 e JavaScript) quanto a arquitetura e comunicação com sistemas back-end.</p>
+                <p><strong>Professor:</strong> Lucas Vegi</p>
+                <p><strong>Departamento:</strong> Departamento de Informática (DPI / CCE)</p>
+            </section>
+
+            <section>
+                <h2>Tópicos estudados</h2>
+                <p>Principais conteúdos abordados ao longo do semestre:</p>
+                <img src="img/web.jpg" alt="Tela com código e desenvolvimento web" width="300" style="margin-bottom: 15px; border-radius: 6px;">
+                <ul>
+                    <li>Arquitetura da Web e protocolo HTTP</li>
+                    <li>Estrutura semântica de páginas com HTML5</li>
+                    <li>Estilização e layouts com CSS3 (Flexbox e Grid)</li>
+                    <li>Design responsivo e acessibilidade</li>
+                    <li>Programação client-side com JavaScript</li>
+                    <li>Consumo de APIs e comunicação assíncrona</li>
+                    <li>Introdução a frameworks e desenvolvimento back-end</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Horários das aulas</h2>
+                <div class="tabela-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Dia</th>
+                                <th>Horário</th>
+                                <th>Tipo</th>
+                                <th>Local</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Segunda-feira</td>
+                                <td>14:00 - 16:00</td>
+                                <td>Teórica</td>
+                                <td>PVA - Sala 105</td>
+                            </tr>
+                            <tr>
+                                <td>Quarta-feira</td>
+                                <td>14:00 - 16:00</td>
+                                <td>Prática</td>
+                                <td>Laboratório do DPI</td>
+                            </tr>
+                            <tr>
+                                <td>Sexta-feira</td>
+                                <td>16:00 - 18:00</td>
+                                <td>Atendimento / Dúvidas</td>
+                                <td>Gabinete do professor (DPI)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section>
+                <h2>Links úteis</h2>
+                <p>Material de apoio e portais acadêmicos:</p>
+                <ol>
+                    <li><a href="https://pvanet.ufv.br/" target="_blank">PVANet UFV</a></li>
+                    <li><a href="https://www.dpi.ufv.br/" target="_blank">Site do Departamento de Informática</a></li>
+                    <li><a href="https://www.ufv.br/" target="_blank">Portal da UFV</a></li>
+                    <li><a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript" target="_blank">MDN Web Docs - Guia JavaScript</a></li>
+                    <li><a href="https://www.w3schools.com/js/" target="_blank">W3Schools - Tutorial JavaScript</a></li>
+                </ol>
+            </section>
+
+            <!-- FORMULÁRIO DE COMUNICAÇÃO COM VALIDAÇÃO -->
+            <section id="contato">
+                <h2>Contato</h2>
+                <p>Envie sua dúvida ou mensagem para o professor (campos com * são obrigatórios):</p>
+                
+                <form id="form-contato" novalidate>
+                    <p>
+                        <label for="nome">Nome: *</label>
+                        <input type="text" id="nome" name="nome" placeholder="Digite seu nome">
+                        <span class="msg-erro" id="erro-nome">Este campo é obrigatório.</span>
+                    </p>
+                    <p>
+                        <label for="matricula">Matrícula:</label>
+                        <input type="text" id="matricula" name="matricula" placeholder="Ex: 105000">
+                    </p>
+                    <p>
+                        <label for="email">E-mail: *</label>
+                        <input type="email" id="email" name="email" placeholder="seu.email@ufv.br">
+                        <span class="msg-erro" id="erro-email">Este campo é obrigatório.</span>
+                    </p>
+                    <p>
+                        <label for="assunto">Assunto:</label>
+                        <input type="text" id="assunto" name="assunto" placeholder="Ex: Dúvida no exercício de JavaScript">
+                    </p>
+                    <p>
+                        <label for="mensagem">Mensagem: *</label>
+                        <textarea id="mensagem" name="mensagem" rows="5" placeholder="Digite sua mensagem aqui..."></textarea>
+                        <span class="msg-erro" id="erro-mensagem">Este campo é obrigatório.</span>
+                    </p>
+                    <p>
+                        <button type="submit">Enviar mensagem</button>
+                    </p>
+
+                    <!-- Mensagem de Sucesso da Validação -->
+                    <div id="sucesso-contato" class="form-sucesso hidden">
+                        Mensagem enviada com sucesso! Entraremos em contato em breve.
+                    </div>
+                </form>
+            </section>
+        </main>
+
+        <hr>
+
+        <!-- PARTE 2: PRODUTOS (CARDS NO E-COMMERCE COM JAVASCRIPT) -->
+        <div id="produtos" class="ecommerce-box">
+            
+            <div class="topo-produtos">
+                <h1>PRODUTOS</h1>
+            </div>
+
+            <div class="ecommerce-corpo">
+                <h2>Produtos disponíveis</h2>
+                <p>Confira nossa seleção de produtos interativos com busca, carrinho e manipulação de DOM:</p>
+
+                <!-- CAMPO DE BUSCA -->
+                <div class="busca-container">
+                    <div class="busca-input-wrapper">
+                        <input type="text" id="campo-busca" placeholder="Digite um produto...">
+                    </div>
+                    <button type="button" id="btn-buscar" class="btn-buscar">Buscar</button>
+                    <button type="button" id="btn-limpar-busca" class="btn-limpar-busca hidden">Limpar</button>
+                </div>
+
+                <!-- ALERTA / NOTIFICAÇÃO DO CARRINHO -->
+                <div id="alerta-carrinho" class="alerta-carrinho hidden" role="alert">
+                    <div class="alerta-carrinho-conteudo">
+                        <span id="alerta-mensagem">Produto adicionado ao carrinho!</span>
+                    </div>
+                    <button type="button" id="btn-fechar-alerta" class="alerta-carrinho-fechar" aria-label="Fechar alerta">&times;</button>
+                </div>
+
+                <!-- CARDS DE PRODUTOS DINÂMICOS -->
+                <div class="cards-container" id="cards-container">
+                    
+                    <!-- Card 1: Notebook -->
+                    <div class="card" data-id="1" data-nome="Notebook" data-preco="5000" data-img="img/notebook.jpg" data-desc="Processador Intel Core i5, 8GB de memória RAM e SSD de 256GB.">
+                        <img src="img/notebook.jpg" alt="Notebook" class="card-img">
+                        <h3>Notebook</h3>
+                        <p class="descricao">Processador Intel Core i5, 8GB de memória RAM e SSD de 256GB.</p>
+                        <p class="preco">R$ 5.000</p>
+                        <button type="button" class="btn-comprar">Comprar</button>
+                        <a href="#" class="detalhes">Ver detalhes</a>
+                    </div>
+
+                    <!-- Card 2: Celular -->
+                    <div class="card" data-id="2" data-nome="Celular" data-preco="3000" data-img="img/celular.jpg" data-desc="Tela AMOLED de 6.5 polegadas, 128GB de armazenamento e câmera tripla.">
+                        <img src="img/celular.jpg" alt="Celular" class="card-img">
+                        <h3>Celular</h3>
+                        <p class="descricao">Tela AMOLED de 6.5 polegadas, 128GB de armazenamento e câmera tripla.</p>
+                        <p class="preco">R$ 3.000</p>
+                        <button type="button" class="btn-comprar">Comprar</button>
+                        <a href="#" class="detalhes">Ver detalhes</a>
+                    </div>
+
+                    <!-- Card 3: Tablet -->
+                    <div class="card" data-id="3" data-nome="Tablet" data-preco="2000" data-img="img/tablet.jpg" data-desc="Tela de 10 polegadas, suporte a caneta stylus e bateria de longa duração.">
+                        <img src="img/tablet.jpg" alt="Tablet" class="card-img">
+                        <h3>Tablet</h3>
+                        <p class="descricao">Tela de 10 polegadas, suporte a caneta stylus e bateria de longa duração.</p>
+                        <p class="preco">R$ 2.000</p>
+                        <button type="button" class="btn-comprar">Comprar</button>
+                        <a href="#" class="detalhes">Ver detalhes</a>
+                    </div>
+
+                    <!-- Card 4: Mouse -->
+                    <div class="card" data-id="4" data-nome="Mouse Sem Fio Logitech" data-preco="69.90" data-img="img/mouse.jpg" data-desc="Conexão sem fio 2.4 GHz, sensor óptico de 1000 DPI e autonomia de 12 meses.">
+                        <img src="img/mouse.jpg" alt="Mouse Sem Fio Logitech" class="card-img">
+                        <h3>Mouse Sem Fio Logitech M170</h3>
+                        <p class="descricao">Conexão sem fio 2.4 GHz, sensor óptico de 1000 DPI e autonomia de 12 meses.</p>
+                        <p class="preco">R$ 69,90</p>
+                        <button type="button" class="btn-comprar">Comprar</button>
+                        <a href="#" class="detalhes">Ver detalhes</a>
+                    </div>
+
+                    <!-- Card 5: Teclado -->
+                    <div class="card" data-id="5" data-nome="Teclado Mecânico Redragon" data-preco="219.00" data-img="img/teclado.jpg" data-desc="Padrão ABNT2, switches mecânicos Outemu Blue e iluminação LED vermelha.">
+                        <img src="img/teclado.jpg" alt="Teclado Mecânico Redragon" class="card-img">
+                        <h3>Teclado Mecânico Redragon</h3>
+                        <p class="descricao">Padrão ABNT2, switches mecânicos Outemu Blue e iluminação LED vermelha.</p>
+                        <p class="preco">R$ 219,00</p>
+                        <button type="button" class="btn-comprar">Comprar</button>
+                        <a href="#" class="detalhes">Ver detalhes</a>
+                    </div>
+
+                </div>
+
+                <!-- Mensagem de busca sem resultados -->
+                <div id="busca-sem-resultados" class="sem-resultados hidden">
+                    <p>Nenhum produto encontrado para a sua busca.</p>
+                    <button type="button" id="btn-reset-busca" class="btn-modal-secundario" style="margin-top: 10px;">Ver todos os produtos</button>
+                </div>
+
+                <!-- Tabela de Produtos -->
+                <h3 style="margin-top: 25px;">Lista comparativa de preços</h3>
+                <div class="tabela-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Produto</th>
+                                <th>Preço</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Notebook</td>
+                                <td><strong style="color: #10b981;">R$ 5.000</strong></td>
+                                <td>Disponível</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Celular</td>
+                                <td><strong style="color: #10b981;">R$ 3.000</strong></td>
+                                <td>Disponível</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Tablet</td>
+                                <td><strong style="color: #10b981;">R$ 2.000</strong></td>
+                                <td>Disponível</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Mouse Sem Fio Logitech</td>
+                                <td><strong style="color: #10b981;">R$ 69,90</strong></td>
+                                <td>Disponível</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Teclado Mecânico Redragon</td>
+                                <td><strong style="color: #10b981;">R$ 219,00</strong></td>
+                                <td>Disponível</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- SEÇÃO DE INTERAÇÃO VISUAL COM classList -->
+                <div class="secao-classlist">
+                    <div class="classlist-cabecalho">
+                        <div>
+                            <h3>Manipulação com classList</h3>
+                            <p>Utilize <code>classList.add()</code>, <code>classList.remove()</code> e <code>classList.toggle()</code> para adicionar, remover ou alternar classes CSS e alterar a aparência dos elementos.</p>
+                        </div>
+                    </div>
+
+                    <div class="classlist-demos">
+                        <!-- classList.add() -->
+                        <div class="demo-item">
+                            <span class="badge-metodo">classList.add()</span>
+                            <p class="demo-descricao">Adiciona uma classe (ativo)</p>
+                            <button type="button" id="btn-demo-add" class="btn-demo">Comprar</button>
+                            <span class="demo-status" id="status-demo-add">Estado: padrão</span>
+                        </div>
+
+                        <!-- classList.remove() -->
+                        <div class="demo-item">
+                            <span class="badge-metodo">classList.remove()</span>
+                            <p class="demo-descricao">Remove uma classe (ativo)</p>
+                            <button type="button" id="btn-demo-remove" class="btn-demo ativo">Comprar</button>
+                            <span class="demo-status" id="status-demo-remove">Estado: ativo</span>
+                        </div>
+
+                        <!-- classList.toggle() -->
+                        <div class="demo-item">
+                            <span class="badge-metodo">classList.toggle()</span>
+                            <p class="demo-descricao">Alterna uma classe (ativo)</p>
+                            <button type="button" id="btn-demo-toggle" class="btn-demo">Comprar</button>
+                            <span class="demo-status" id="status-demo-toggle">Estado: padrão</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulário de cadastro de produto -->
+                <h3 style="margin-top: 25px;">Cadastrar novo produto</h3>
+                <form action="#" method="post">
+                    <p>
+                        <label for="nome-prod">Nome do produto:</label>
+                        <input type="text" id="nome-prod" name="nome" placeholder="Ex: Monitor 24 Polegadas" required>
+                    </p>
+                    <p>
+                        <label for="preco-prod">Preço (R$):</label>
+                        <input type="number" id="preco-prod" name="preco" step="0.01" placeholder="Ex: 850.00" required>
+                    </p>
+                    <p>
+                        <label for="foto-prod">Foto do produto (URL ou caminho):</label>
+                        <input type="text" id="foto-prod" name="foto" placeholder="img/produto.jpg" required>
+                    </p>
+                    <p>
+                        <label for="desc-prod">Descrição do produto:</label>
+                        <textarea id="desc-prod" name="descricao" rows="4" placeholder="Digite as especificações do produto"></textarea>
+                    </p>
+                    <p>
+                        <button type="submit">Cadastrar Novo Produto</button>
+                    </p>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- MODAL DO CARRINHO (Adicionar produtos no carrinho com modal) -->
+    <div id="modal-carrinho" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="titulo-modal">
+        <div class="modal-caixa">
+            <div class="modal-cabecalho">
+                <h3 id="titulo-modal">Meu Carrinho de Compras</h3>
+                <button type="button" id="btn-fechar-modal" class="btn-fechar-modal" aria-label="Fechar">&times;</button>
+            </div>
+
+            <div class="modal-corpo">
+                <div id="itens-carrinho" class="carrinho-lista">
+                    <!-- Itens renderizados dinamicamente pelo JavaScript -->
+                </div>
+                
+                <div id="carrinho-vazio" class="carrinho-vazio-msg hidden">
+                    <p><strong>Seu carrinho está vazio.</strong></p>
+                    <p style="margin-top: 5px;">Clique no botão "Comprar" dos produtos para adicioná-los!</p>
+                </div>
+            </div>
+
+            <div class="modal-rodape">
+                <div class="carrinho-total">
+                    <span>Total da Compra:</span>
+                    <strong id="total-carrinho">R$ 0,00</strong>
+                </div>
+                <div class="modal-botoes">
+                    <button type="button" id="btn-limpar-carrinho" class="btn-modal-secundario">Limpar Carrinho</button>
+                    <button type="button" id="btn-continuar-comprando" class="btn-modal-secundario">Continuar Comprando</button>
+                    <button type="button" id="btn-finalizar-compra" class="btn-modal-primario">Finalizar Compra</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- RODAPÉ  -->
+    <footer>
+        <p>INF 321 - Projeto e Desenvolvimento de Sistemas para a Web | Universidade Federal de Viçosa</p>
+        <p>Minha loja - Aluno: Rafael Caetité</p>
+    </footer>
+
+    <!-- SCRIPT JAVASCRIPT -->
+    <script src="app.js"></script>
+</body>
+</html>
